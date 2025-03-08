@@ -8,5 +8,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://camilo-845.github.io',
-  base: 'ProvisionalPortfolio',
+  base: '',
 });
