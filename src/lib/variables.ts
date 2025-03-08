@@ -2,10 +2,10 @@
 
 export const GLOBAL = {
   // Site metadata
-  username: "Zaggonaut",
-  rootUrl: "https://zaggonaut.dev",
-  shortDescription: "Retro-Inspired Theme &<br /> Built for Astro",
-  longDescription: "Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and Astro.",
+  username: "Camilo Sarmiento",
+  rootUrl: "http://camilosar.site",
+  shortDescription: "Software Developer | DevOps Enthusiast | Passionate Technologist",
+  longDescription: "I enjoy providing software solutions and bring ideas to life and solve real-world problems.",
   
   // Social media links
   githubProfile: "https://github.com/RATIU5/zaggonaut",
@@ -31,7 +31,7 @@ export const GLOBAL = {
   projectLongDescription: "All of my projects, including both frontend and full-stack applications.",
 
   // Profile image
-  profileImage: "michael-dam-unsplash.webp",
+  profileImage: "my-notion-face-transparent.webp",
 
   // Menu items
   menu: {
