@@ -15,11 +15,13 @@ export const GLOBAL = {
   articlesName: "Blog Posts",
   projectsName: "Projects",
   aboutName: "About Me",
+  educationName: "Education",
   viewAll: "View All",
   
   // Common descriptions used throughout the site
   noArticles: "No featured post yet.",
   noProjects: "No featured projects yet.",
+  noEducation: "No education information yet.",
 
   // Blog metadata
   blogTitle: "My Thoughts & Takes",

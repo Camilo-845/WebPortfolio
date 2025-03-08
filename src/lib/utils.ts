@@ -19,7 +19,7 @@ type MarkdownData<T extends object> = {
  * @returns a promise that resolves to an array of processed content
  */
 export const processContentInDir = async <T extends object, K>(
-  contentType: "projects" | "blog",
+  contentType: "projects" | "blog" | "education",
   processFn: (data: MarkdownData<T>) => K,
   dir: string = process.cwd(),
 ) => {
@@ -38,7 +38,19 @@ export const processContentInDir = async <T extends object, K>(
         url: string;
       };
       return processFn(data);
-    } else {
+    }
+    else if (contentType === "education") {
+      const content = import.meta
+        .glob(`/src/pages/education/*.md`)
+        [`/src/pages/education/${file}.md`]();
+      const data = (await content) as {
+        frontmatter: T;
+        file: string;
+        url: string;
+      };
+      return processFn(data);
+    } 
+    else {
       const content = import.meta
         .glob(`/src/pages/blog/*.md`)
         [`/src/pages/blog/${file}.md`]();
@@ -68,14 +80,35 @@ export const getShortDescription = (content: string, maxLength = 20) => {
 /**
  * Processes the date of an article and returns a string representing the processed date.
  * @param timestamp the timestamp to process
+ * @param show an optional object that determines which date fragments to show
  * @returns a string representing the processed timestamp
  */
-export const processArticleDate = (timestamp: string) => {
+export const processArticleDate = (timestamp: string, show: { year?: boolean, month?: boolean, day?: boolean } = { year: true, month: true, day: true }) => {
   const date = new Date(timestamp);
   const monthSmall = date.toLocaleString("default", { month: "short" });
   const day = date.getDate();
   const year = date.getFullYear();
-  return `${monthSmall} ${day}, ${year}`;
+  let processedDate = "";
+  
+  if (show.year) {
+    processedDate += `${year}`;
+  }
+  
+  if (show.month) {
+    if (processedDate) {
+      processedDate += " ";
+    }
+    processedDate += `${monthSmall}`;
+  }
+  
+  if (show.day) {
+    if (processedDate) {
+      processedDate += " ";
+    }
+    processedDate += `${day}`;
+  }
+  
+  return processedDate;
 };
 
 /**

@@ -81,3 +81,47 @@ export type ArticleFrontmatter = {
    */
   filename: string;
 };
+
+export type EducationFrontmatter = {
+  /**
+   * The name of the institution
+   */
+  institution: string;
+
+  /**
+   * The degree or certificate received
+   */
+  degree: string;
+
+
+  /**
+   * The date the education start in W3C format
+   */
+  start_date: string;
+
+  /**
+   * The date the education ended in W3C format
+   */
+  end_date: string;
+
+  /**
+   * The URL of the degree or certificate
+   */
+  degree_url?: string;
+
+  /**
+   * The sumary description of the education
+   */
+  description: string;
+
+  /**
+   * The URL of the education on the website
+   * (eg. https://zaggonaut.dev/education/my-education)
+   */
+  filename: string;
+
+  /**
+   * The order of the education
+   */
+  order: number;
+};

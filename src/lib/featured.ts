@@ -1,5 +1,5 @@
-import type { ArticleFrontmatter, ProjectFrontmatter } from "./types";
-import { getShortDescription, processContentInDir } from "./utils";
+import type { ArticleFrontmatter, ProjectFrontmatter, EducationFrontmatter} from "./types";
+import { getShortDescription, processContentInDir} from "./utils";
 
 export const featuredProjects = (
   await processContentInDir<ProjectFrontmatter, ProjectFrontmatter>(
@@ -53,3 +53,23 @@ export const featuredArticles = (
       const dateB = new Date(b.timestamp);
       return dateB.getTime() - dateA.getTime();
     });
+
+export const featuredEducation = (
+  await processContentInDir<EducationFrontmatter, EducationFrontmatter>(
+    "education",
+    (data) => {
+      const shortDescription = getShortDescription(
+        data.frontmatter.description,
+      );
+      return {
+        institution: data.frontmatter.institution,
+        degree: data.frontmatter.degree,
+        start_date: data.frontmatter.start_date,
+        end_date: data.frontmatter.end_date,
+        description: shortDescription,
+        filename: `/education/${data.frontmatter.filename}`,
+        order: data.frontmatter.order,
+      };
+    },
+  )
+).sort((a, b) => a.order - b.order);

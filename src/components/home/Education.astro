@@ -1,0 +1,27 @@
+---
+import type { EducationFrontmatter } from "../../lib/types";
+import { GLOBAL } from "../../lib/variables";
+import EducationSnippet from "../EducationSnippet.astro";
+
+type Props = {
+  education: Array<EducationFrontmatter>;
+};
+
+const { education } = Astro.props;
+---
+
+<div class="flex justify-between items-center w-full">
+  <h3 class="font-display text-lg sm:text-xl leading-loose">{GLOBAL.educationName}</h3>
+</div>
+<ul class="my-8">
+  {
+    (education.length === 0 && <p>{GLOBAL.noEducation}</p>) ||
+      education.map((education) => (
+        <li>
+          <EducationSnippet
+            education={education}
+          />
+        </li>
+      ))
+  }
+</ul>
