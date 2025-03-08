@@ -4,20 +4,21 @@ export const GLOBAL = {
   // Site metadata
   username: "Camilo Sarmiento",
   rootUrl: "http://camilosar.site",
-  shortDescription: "Software Developer | DevOps Enthusiast | Passionate Technologist",
+  shortDescription: "Software Developer | Automation & DevOps Fan | Tech Lover",
   longDescription: "I enjoy providing software solutions and bring ideas to life and solve real-world problems.",
   
   // Social media links
-  githubProfile: "https://github.com/RATIU5/zaggonaut",
+  githubProfile: "https://github.com/camilo-845",
   twitterProfile: "https://twitter.com/",
-  
+
   // Common text names used throughout the site
-  articlesName: "Articles",
+  articlesName: "Blog Posts",
   projectsName: "Projects",
+  aboutName: "About Me",
   viewAll: "View All",
   
   // Common descriptions used throughout the site
-  noArticles: "No featured articles yet.",
+  noArticles: "No featured post yet.",
   noProjects: "No featured projects yet.",
 
   // Blog metadata
@@ -38,5 +39,8 @@ export const GLOBAL = {
     home: "/",
     projects: "/projects",
     blog: "/blog",
-  }
+  },
+
+  // About content
+  aboutmeDescription: "I'm a software developer with a passion for automation and DevOps. I enjoy providing software solutions and bring ideas to life and solve real-world problems. I'm always looking for new challenges and opportunities to learn and grow.",
 };

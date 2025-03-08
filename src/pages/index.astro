@@ -6,6 +6,7 @@ import Hero from "../components/home/Hero.astro";
 import Section from "../components/common/Section.astro";
 import FeaturedProjects from "../components/home/FeaturedProjects.astro";
 import FeaturedArticles from "../components/home/FeaturedArticles.astro";
+import AboutMe from "../components/home/AboutMe.astro";
 ---
 
 <Layout>
@@ -41,6 +42,9 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
   </Fragment>
   <Section class="my-16">
     <Hero />
+  </Section>
+  <Section>
+    <AboutMe />
   </Section>
   <Section>
     <FeaturedProjects featuredProjects={featuredProjects} />
