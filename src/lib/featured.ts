@@ -1,5 +1,6 @@
 import type { ArticleFrontmatter, ProjectFrontmatter, EducationFrontmatter} from "./types";
 import { getShortDescription, processContentInDir} from "./utils";
+import { GLOBAL } from "./variables";
 
 export const featuredProjects = (
   await processContentInDir<ProjectFrontmatter, ProjectFrontmatter>(
@@ -54,22 +55,15 @@ export const featuredArticles = (
       return dateB.getTime() - dateA.getTime();
     });
 
-export const featuredEducation = (
-  await processContentInDir<EducationFrontmatter, EducationFrontmatter>(
-    "education",
-    (data) => {
-      const shortDescription = getShortDescription(
-        data.frontmatter.description,
-      );
-      return {
-        institution: data.frontmatter.institution,
-        degree: data.frontmatter.degree,
-        start_date: data.frontmatter.start_date,
-        end_date: data.frontmatter.end_date,
-        description: shortDescription,
-        filename: `/education/${data.frontmatter.filename}`,
-        order: data.frontmatter.order,
-      };
-    },
-  )
-).sort((a, b) => a.order - b.order);
+export const featuredEducation: EducationFrontmatter[] = (
+  GLOBAL.education?.map((education) => {
+    return {
+      description: getShortDescription(education.description),
+      institution: education.institution,
+      degree: education.degree,
+      start_date: education.start_date,
+      end_date: education.end_date,
+      degree_url: education.degree_url, // Add the missing 'degree_url' property
+    };
+  }) ?? []
+);

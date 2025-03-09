@@ -11,7 +11,8 @@ const { education } = Astro.props;
 ---
 <div class="flex flex-col gap-3 pb-8">
     <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
-        <Anchor url={education.degree_url ?? "/"} class="text-xl">
+        <Anchor url={education.degree_url ? education.degree_url: "/"} class="text-xl"
+        external>
             {education.institution}
         </Anchor>
         <div class="flex gap-2">
