@@ -1,5 +1,6 @@
-import type { ArticleFrontmatter, ProjectFrontmatter } from "./types";
-import { getShortDescription, processContentInDir } from "./utils";
+import type { ArticleFrontmatter, ProjectFrontmatter, EducationFrontmatter, CertificationFrontmatter} from "./types";
+import { getShortDescription, processContentInDir} from "./utils";
+import { GLOBAL } from "./variables";
 
 export const featuredProjects = (
   await processContentInDir<ProjectFrontmatter, ProjectFrontmatter>(
@@ -53,3 +54,27 @@ export const featuredArticles = (
       const dateB = new Date(b.timestamp);
       return dateB.getTime() - dateA.getTime();
     });
+
+export const featuredEducation: EducationFrontmatter[] = (
+  GLOBAL.education?.map((education) => {
+    return {
+      description: getShortDescription(education.description),
+      institution: education.institution,
+      degree: education.degree,
+      start_date: education.start_date!,
+      end_date: education.end_date,
+      degree_url: education.degree_url, // Add the missing 'degree_url' property
+    };
+  }) ?? []
+);
+
+export const featuredCertification: CertificationFrontmatter[] = (
+  GLOBAL.certificates?.map((certificate) => {
+    return {
+      name: certificate.name,
+      institution: certificate.institution,
+      date: certificate.date!,
+      url: certificate.url, // Add the missing 'degree_url' property
+    };
+  }) ?? []
+);

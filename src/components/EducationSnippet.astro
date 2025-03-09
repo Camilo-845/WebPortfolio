@@ -1,0 +1,38 @@
+---
+import Anchor from "./common/Anchor.astro";
+import type { EducationFrontmatter } from "../lib/types";
+import { processArticleDate } from "../lib/utils";
+
+export type Props = {
+  education: EducationFrontmatter;
+};
+
+const { education } = Astro.props;
+---
+<div class="flex flex-col gap-3 pb-8">
+    <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
+        <Anchor url={education.degree_url ? education.degree_url: "/"} class="text-xl"
+        external>
+            {education.institution}
+        </Anchor>
+        <div class="flex gap-2">
+            {
+                education.start_date ? (
+                    <span class="text-base">
+                        {processArticleDate(education.start_date, {year: true, month: false, day: false})} - 
+                    </span>
+                ):null
+            }
+            {
+                education.end_date ? (
+                    <span class="text-base">
+                        {processArticleDate(education.end_date, {year: true, month: false, day: false})}
+                    </span>
+                ):null
+            }
+        </div>
+    </div>
+    <p class="zag-text zag-transition">
+        {education.degree}
+    </p>
+</div>
