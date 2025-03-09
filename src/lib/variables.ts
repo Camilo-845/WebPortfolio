@@ -21,12 +21,14 @@ export const GLOBAL = {
   projectsName: "Projects",
   aboutName: "About Me",
   educationName: "Education",
+  certificationsName: "Certifications",
   viewAll: "View All",
 
   // Common descriptions used throughout the site
   noArticles: "No featured post yet.",
   noProjects: "No featured projects yet.",
   noEducation: "No education information yet.",
+  noCertifications: "No certifications yet.",
 
   // Blog metadata
   blogTitle: "My Thoughts & Takes",
@@ -92,6 +94,38 @@ export const GLOBAL = {
       degree_url:
         "https://drive.google.com/file/d/1h5aG0n-ncfnaCtOcryliwCWk5kbUSvP8/view?usp=sharing",
       description: "Bootcamp with over 800 hours of intensive learning",
+    },
+  ],
+
+  // Certification content
+  certificates: [
+    {
+      name: "Automation in the AWS Cloud",
+      institution: "AWS",
+      date: "2024-11-28T00:00:01Z",
+      url:
+        "https://www.coursera.org/account/accomplishments/verify/CMEF4Z9NXDGH",
+    },
+    {
+      name: "DevOps on AWS and Project Management",
+      institution: "AWS",
+      date: "2024-11-28T00:00:01Z",
+      url:
+        "https://www.coursera.org/account/accomplishments/verify/EODEXKJELQQ2",
+    },
+    {
+      name: "How to solve problems and make decisions effectively",
+      institution: "Coursera",
+      date: "2024-12-07T00:00:01Z",
+      url:
+        "https://www.coursera.org/account/accomplishments/verify/EA0Q9UKQQ2YC",
+    },
+    {
+      name: "Curso Profesional de Git y GitHub",
+      institution: "Platzi",
+      date: "2023-10-12T00:00:01Z",
+      url:
+        "https://platzi.com/p/camilo.sarmiento.amado/",
     },
   ],
 };

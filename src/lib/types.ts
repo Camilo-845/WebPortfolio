@@ -113,3 +113,25 @@ export type EducationFrontmatter = {
    */
   description: string;
 };
+
+export type CertificationFrontmatter = {
+  /**
+   * The name of the certification
+   */
+  name: string;
+
+  /**
+   * The institution that provided the certification
+   */
+  institution: string;
+
+  /**
+   * The date the certification was received in W3C format
+   */
+  date: string;
+
+  /**
+   * The URL of the certification
+   */
+  url: string;
+};

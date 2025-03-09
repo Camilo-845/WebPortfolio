@@ -1,0 +1,39 @@
+---
+import Anchor from "./common/Anchor.astro";
+import type { CertificationFrontmatter } from "../lib/types";
+import { processArticleDate } from "../lib/utils";
+
+export type Props = {
+  certification: CertificationFrontmatter;
+};
+
+const { certification } = Astro.props;
+---
+
+<div class="flex flex-col gap-3 pb-8">
+  <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
+    <Anchor
+      url={certification.url ? certification.url : "/"}
+      class="text-xl"
+      external
+    >
+      {certification.name}
+    </Anchor>
+    <div class="flex gap-2">
+      {
+        certification.date ? (
+          <span class="text-base">
+            {processArticleDate(certification.date, {
+              year: true,
+              month: true,
+              day: true,
+            })}
+          </span>
+        ) : null
+      }
+    </div>
+  </div>
+  <p class="zag-text zag-transition">
+    {certification.institution}
+  </p>
+</div>

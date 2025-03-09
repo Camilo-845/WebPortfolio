@@ -1,4 +1,4 @@
-import type { ArticleFrontmatter, ProjectFrontmatter, EducationFrontmatter} from "./types";
+import type { ArticleFrontmatter, ProjectFrontmatter, EducationFrontmatter, CertificationFrontmatter} from "./types";
 import { getShortDescription, processContentInDir} from "./utils";
 import { GLOBAL } from "./variables";
 
@@ -61,9 +61,20 @@ export const featuredEducation: EducationFrontmatter[] = (
       description: getShortDescription(education.description),
       institution: education.institution,
       degree: education.degree,
-      start_date: education.start_date,
+      start_date: education.start_date!,
       end_date: education.end_date,
       degree_url: education.degree_url, // Add the missing 'degree_url' property
+    };
+  }) ?? []
+);
+
+export const featuredCertification: CertificationFrontmatter[] = (
+  GLOBAL.certificates?.map((certificate) => {
+    return {
+      name: certificate.name,
+      institution: certificate.institution,
+      date: certificate.date!,
+      url: certificate.url, // Add the missing 'degree_url' property
     };
   }) ?? []
 );
