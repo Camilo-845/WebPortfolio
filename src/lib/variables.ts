@@ -1,5 +1,9 @@
 // Set any item to undefined to remove it from the site or to use the default value
 
+import { defineScriptVars } from "astro/compiler-runtime";
+import { start } from "node:repl";
+import { describe } from "node:test";
+
 export const GLOBAL = {
   // Site metadata
   username: "Camilo Sarmiento",
@@ -62,6 +66,15 @@ export const GLOBAL = {
         "https://universidadmag-my.sharepoint.com/:b:/g/personal/cesarmiento_unimagdalena_edu_co/Edv_QMg5-P5OlA3uCrUibvkBDJgj60VypWafogekFcB7fg?e=QloFhs",
       description:
         "Accredited program of high quality, Ability to identify, formulate, and solve complex engineering problems applying engineering, science, and mathematics principles",
+    },
+    {
+      institution: "Universidad Sergio Arboleda",
+      degree: "Bootcamp Cloud Architecture - Exploler level",
+      end_date: "2024-07-02T00:00:01Z",
+      description:
+        "Modeling and implementation of cloud services with AWS and Azure",
+      degree_url:
+        "https://talentotech.usergioarboleda.edu.co/ver-certificado/1051064869",
     },
     {
       institution: "Universidad Nacional de Colombia - MinTic",
