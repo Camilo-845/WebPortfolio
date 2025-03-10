@@ -1,6 +1,6 @@
 ![Portfolio Camilo Sarmiento Image](images/README.png)
-# PROVISONAL PORTFOLIO
-Provisional portfolio by Camilo Sarmiento, based on Astro template [Zaggonaut](https://github.com/RATIU5/zaggonaut)
+# WEB PORTFOLIO 
+Web Portfolio by Camilo Sarmiento, based on Astro template [Zaggonaut](https://github.com/RATIU5/zaggonaut)
 
 
 Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and of course, Astro.
