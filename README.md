@@ -101,7 +101,6 @@ export const GLOBAL = {
 
 **If you don't provide an `icon`, no problem!** A default icon will be used.  
 
-> ⚠ **CAUTION:**  
+> [!CAUTION]
 > If you are running the project while changing icons, you may encounter issues.  
 > **Restart the run command** to see your changes. 🔄  
-
