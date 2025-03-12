@@ -1,71 +1,74 @@
-# WEB PORTFOLIO
+# 🌐 WEB PORTFOLIO
 
 ![Portfolio Camilo Sarmiento Image](images/README.png)
 
-Web Portfolio by Camilo Sarmiento, based on Astro template [Zaggonaut](https://github.com/RATIU5/zaggonaut)
+> Web Portfolio by **Camilo Sarmiento**, based on Astro template [Zaggonaut](https://github.com/RATIU5/zaggonaut) 🚀
 
-## Getting Started
+## 🚀 Getting Started
 
-[View the demo](https://camilosar.site) or [view the source code](https://github.com/RATIU5/zaggonaut).
+[🔗 View the demo](https://camilosar.site) | [🗂 View the source code](https://github.com/Camilo-845/WebPortfolio)
 
-Alternatively, you can create a new Astro project with Zaggonaut like this:
+Alternatively, you can create a new Astro project with Zaggonaut using:
 
 ```bash
-# pnpm
+# 🚀 pnpm
 pnpm create astro@latest -- --template RATIU5/zaggonaut
 
-# pnpm
+# 🚀 pnpm (alternative)
 pnpm create astro@latest --template RATIU5/zaggonaut
 
-# yarn
+# 🚀 yarn
 yarn create astro --template RATIU5/zaggonaut
 
-# bun
+# 🚀 bun
 bun create astro@latest -- --template RATIU5/zaggonaut
 ```
 
-## Features
+---
 
-- Dark & light mode
-- Customizable colors
-- 100 / 100 Lighthouse score
-- Fully accessible
-- Fully responsive
-- Type-safe
-- SEO-friendly
+## ✨ Features
 
-## Customization
+✅ Dark & light mode  
+✅ Customizable colors 🎨  
+✅ 100 / 100 Lighthouse score ⚡  
+✅ Fully accessible ♿  
+✅ Fully responsive 📱  
+✅ Type-safe 🛡️  
+✅ SEO-friendly 🔍  
 
-The theme is setup a specific way to make it easy to customize.
+---
 
-### Colors
+## 🎨 Customization
 
-You can customize the colors of the theme by editing the `src/styles/global.css` file.
-This file uses Tailwind CSS and CSS variables to customize the colors of the theme.
-Zaggonaut uses the following CSS variables:
+The theme is set up to be easy to customize.
 
-- `--color-zag-dark`: The dark color of the theme
-- `--color-zag-light`: The light color of the theme
-- `--color-zag-dark-muted`: The dark color of the theme with a slight opacity
-- `--color-zag-light-muted`: The light color of the theme with a slight opacity
-- `--color-zag-accent-light`: The light accent color of the theme
-- `--color-zag-accent-light-muted`: The light accent color of the theme with a slight opacity
-- `--color-zag-accent-dark`: The dark accent color of the theme
-- `--color-zag-accent-dark-muted`: The dark accent color of the theme with a slight opacity
+### 🎨 Colors
 
-### Text
+You can customize the theme colors by editing `src/styles/global.css`.  
+This file uses **Tailwind CSS** and **CSS variables** to define colors:
 
-You can customize the text of the theme by editing the `src/lib/variables.ts` file.
-This file contains all of the text used throughout the theme.
+```css
+:root {
+  --color-zag-dark: #1a1a1a;
+  --color-zag-light: #ffffff;
+  --color-zag-dark-muted: rgba(26, 26, 26, 0.8);
+  --color-zag-light-muted: rgba(255, 255, 255, 0.8);
+  --color-zag-accent-light: #ff9800;
+  --color-zag-accent-light-muted: rgba(255, 152, 0, 0.8);
+  --color-zag-accent-dark: #ff5722;
+  --color-zag-accent-dark-muted: rgba(255, 87, 34, 0.8);
+}
+```
 
-For example, you can change the `username` variable to your own username and everywhere the username is used will be replaced with your username.
+### 🏝️ Text
+
+Customize the text content by editing `src/lib/variables.ts`.  
+For example, to set your username:
 
 ```typescript
 export const GLOBAL = {
   // Site metadata
   username: "camilosar-123",
-
-  // ...
 
   // Profile image
   profileImage: "profile.webp",
@@ -79,20 +82,26 @@ export const GLOBAL = {
 };
 ```
 
-### Skills and Icons
+---
 
-You can customize your skill icons by adding `.svg` files to the `src/icons` folder
+## 🛠️ Skills and Icons
 
-In your `variables.ts` file, you need to specify the SVG filename like this:
+You can customize your **skills icons** by adding `.svg` files to the **`src/icons`** folder.
+
+In `variables.ts`, specify the SVG filename like this:
 
 ```typescript
 export const GLOBAL = {
-  // Skills content
+  // 🏆 Skills content
   skills: [
     { name: "HTML", icon: "html_icon" },
   ],
 };
 ```
 
-> [!CAUTION]
-> If you are running the project while changing the icons, you may encounter issues. Restart the run command to see your changes
+**If you don't provide an `icon`, no problem!** A default icon will be used.  
+
+> ⚠ **CAUTION:**  
+> If you are running the project while changing icons, you may encounter issues.  
+> **Restart the run command** to see your changes. 🔄  
+
