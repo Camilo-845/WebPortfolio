@@ -1,9 +1,8 @@
+# WEB PORTFOLIO
+
 ![Portfolio Camilo Sarmiento Image](images/README.png)
-# WEB PORTFOLIO 
+
 Web Portfolio by Camilo Sarmiento, based on Astro template [Zaggonaut](https://github.com/RATIU5/zaggonaut)
-
-
-Zaggonaut is a retro-inspired theme for Astro, built using TypeScript, TailwindCSS, and of course, Astro.
 
 ## Getting Started
 
@@ -37,7 +36,7 @@ bun create astro@latest -- --template RATIU5/zaggonaut
 
 ## Customization
 
-The entire theme is fully customizable. The theme is setup a specific way to make it easy to customize.
+The theme is setup a specific way to make it easy to customize.
 
 ### Colors
 
@@ -64,7 +63,7 @@ For example, you can change the `username` variable to your own username and eve
 ```typescript
 export const GLOBAL = {
   // Site metadata
-  username: "zaggonaut-fan123",
+  username: "camilosar-123",
 
   // ...
 
@@ -79,3 +78,21 @@ export const GLOBAL = {
   }
 };
 ```
+
+### Skills and Icons
+
+You can customize your skill icons by adding `.svg` files to the `src/icons` folder
+
+In your `variables.ts` file, you need to specify the SVG filename like this:
+
+```typescript
+export const GLOBAL = {
+  // Skills content
+  skills: [
+    { name: "HTML", icon: "html_icon" },
+  ],
+};
+```
+
+> [!CAUTION]
+> If you are running the project while changing the icons, you may encounter issues. Restart the run command to see your changes
