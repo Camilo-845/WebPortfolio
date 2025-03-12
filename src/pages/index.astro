@@ -49,13 +49,13 @@ import Certification from "../components/home/Certification.astro";
     <AboutMe />
   </Section>
   <Section>
+    <FeaturedProjects featuredProjects={featuredProjects} />
+  </Section>
+  <Section>
     <Education education={featuredEducation} />
   </Section>
   <Section>
     <Certification certification={featuredCertification} />
-  </Section>
-  <Section>
-    <FeaturedProjects featuredProjects={featuredProjects} />
   </Section>
   <Section>
     <FeaturedArticles featuredArticles={featuredArticles} />
