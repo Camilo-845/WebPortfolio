@@ -23,6 +23,7 @@ export const GLOBAL = {
   aboutName: "About Me",
   educationName: "Education",
   certificationsName: "Certifications",
+  skillsName: "Skills",
   viewAll: "View All",
 
   // Common descriptions used throughout the site
@@ -30,6 +31,7 @@ export const GLOBAL = {
   noProjects: "No featured projects yet.",
   noEducation: "No education information yet.",
   noCertifications: "No certifications yet.",
+  noSkills: "No skills yet.",
 
   // Active links on Secitions
   activeLinksEducation: false,
@@ -61,6 +63,11 @@ export const GLOBAL = {
   // About content
   aboutmeDescription:
     "I'm a software developer with a passion for automation and DevOps. I enjoy providing software solutions and bring ideas to life and solve real-world problems. I'm always looking for new challenges and opportunities to learn and grow.",
+
+  // Skills content
+  skills:[
+    {name: "HTML", icon: "docker"},
+  ],
 
   // Education content
   education: [

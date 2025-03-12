@@ -1,0 +1,26 @@
+---
+import { GLOBAL } from "../../lib/variables";
+import type { SkillsFrontmatter } from "../../lib/types";
+import SkillSnippet from "../snippets/SkillSnippet.astro";
+
+type Props = {
+  skills: Array<SkillsFrontmatter>;
+};
+const { skills } = Astro.props;
+---
+
+<div class="flex justify-between items-center w-full">
+  <h3 class="font-display text-lg sm:text-xl leading-loose">{GLOBAL.skillsName}</h3>
+</div>
+<ul class="my-8 flex flex-wrap justify-center">
+  {
+    (skills.length === 0 && <p>{GLOBAL.noSkills}</p>) ||
+      skills.map((skill) => (
+        <li>
+          <SkillSnippet
+            skill={skill}
+          />
+        </li>
+      ))
+  }
+</ul>

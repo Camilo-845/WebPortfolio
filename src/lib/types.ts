@@ -135,3 +135,15 @@ export type CertificationFrontmatter = {
    */
   url: string;
 };
+
+export type SkillsFrontmatter = {
+  /**
+   * The name of the skill
+   */
+  name: string;
+
+  /**
+   * The level of the skill
+   */
+  icon?: string;
+};
