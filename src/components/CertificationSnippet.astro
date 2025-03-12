@@ -2,6 +2,7 @@
 import Anchor from "./common/Anchor.astro";
 import type { CertificationFrontmatter } from "../lib/types";
 import { processArticleDate } from "../lib/utils";
+import { GLOBAL } from "../lib/variables";
 
 export type Props = {
   certification: CertificationFrontmatter;
@@ -13,9 +14,13 @@ const { certification } = Astro.props;
 <div class="flex flex-col gap-3 pb-8">
   <div class="flex flex-col gap-3 sm:flex-row sm:justify-between">
     <Anchor
-      url={certification.url ? certification.url : "/"}
+      url={GLOBAL.activeLinksCertifications
+        ? certification.url
+          ? certification.url
+          : "/"
+        : "/"}
       class="text-xl"
-      external
+      external={GLOBAL.activeLinksCertifications}
     >
       {certification.name}
     </Anchor>

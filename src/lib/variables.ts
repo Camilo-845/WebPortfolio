@@ -30,6 +30,10 @@ export const GLOBAL = {
   noEducation: "No education information yet.",
   noCertifications: "No certifications yet.",
 
+  // Active links on Secitions
+  activeLinksEducation: false,
+  activeLinksCertifications: false,
+
   // Blog metadata
   blogTitle: "My Thoughts & Takes",
   blogShortDescription: "Practical wisdom, unfiltered thoughts, and hot takes.",
