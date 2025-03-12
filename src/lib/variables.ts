@@ -14,7 +14,8 @@ export const GLOBAL = {
 
   // Social media links
   githubProfile: "https://github.com/camilo-845",
-  twitterProfile: "https://twitter.com/",
+  twitterProfile: undefined,
+  linkedinProfile: "https://linkedin.com/in/camilo-sarmiento-051a80244/",
 
   // Common text names used throughout the site
   articlesName: "Blog Posts",
