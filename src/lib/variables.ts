@@ -66,7 +66,17 @@ export const GLOBAL = {
 
   // Skills content
   skills:[
-    {name: "HTML", icon: "docker"},
+    {name: "TypeScript", icon: "typescript"},
+    {name: "Nodejs", icon: "nodejs"},
+    {name: "PostgreSQL", icon: "postgresql"},
+    {name: "Python", icon: "python"},
+    {name: "Git", icon: "git"},
+    {name: "docker", icon: "docker"},
+    {name: "AWS", icon: "aws"},
+    {name: "React", icon: "react"},
+    {name: "CI/CD", icon: "ci-cd"},
+    {name: "Jira", icon: "jira"},
+    {name: "Linux", icon: "linux"},
   ],
 
   // Education content
