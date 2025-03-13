@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout your repository
         uses: actions/checkout@v4
 
       - name: Setup pnpm
@@ -22,11 +22,22 @@ jobs:
         with:
           version: latest
 
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          package-manager: pnpm@latest
-          build-flags: "--no-frozen-lockfile"
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build Astro site
+        run: pnpm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
     needs: build
