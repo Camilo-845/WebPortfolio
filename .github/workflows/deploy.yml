@@ -17,7 +17,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - name: Install dependencies with npm
-        run: npm install
+        run: npm install --force 
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
