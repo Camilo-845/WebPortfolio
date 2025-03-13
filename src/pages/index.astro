@@ -1,5 +1,5 @@
 ---
-import { featuredArticles, featuredProjects, featuredEducation, featuredCertification} from "../lib/featured";
+import { featuredArticles, featuredProjects, featuredEducation, featuredCertification, featuredSkills} from "../lib/featured";
 import { GLOBAL } from "../lib/variables";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/home/Hero.astro";
@@ -9,6 +9,7 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
 import AboutMe from "../components/home/AboutMe.astro";
 import Education from "../components/home/Education.astro";
 import Certification from "../components/home/Certification.astro";
+import Skills from "../components/home/Skills.astro";
 ---
 
 <Layout>
@@ -49,13 +50,16 @@ import Certification from "../components/home/Certification.astro";
     <AboutMe />
   </Section>
   <Section>
+    <Skills skills={featuredSkills} />
+  </Section>
+  <Section>
+    <FeaturedProjects featuredProjects={featuredProjects} />
+  </Section>
+  <Section>
     <Education education={featuredEducation} />
   </Section>
   <Section>
     <Certification certification={featuredCertification} />
-  </Section>
-  <Section>
-    <FeaturedProjects featuredProjects={featuredProjects} />
   </Section>
   <Section>
     <FeaturedArticles featuredArticles={featuredArticles} />

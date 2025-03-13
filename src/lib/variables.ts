@@ -14,7 +14,8 @@ export const GLOBAL = {
 
   // Social media links
   githubProfile: "https://github.com/camilo-845",
-  twitterProfile: "https://twitter.com/",
+  twitterProfile: undefined,
+  linkedinProfile: "https://linkedin.com/in/camilo-sarmiento-051a80244/",
 
   // Common text names used throughout the site
   articlesName: "Blog Posts",
@@ -22,6 +23,7 @@ export const GLOBAL = {
   aboutName: "About Me",
   educationName: "Education",
   certificationsName: "Certifications",
+  skillsName: "Skills",
   viewAll: "View All",
 
   // Common descriptions used throughout the site
@@ -29,6 +31,11 @@ export const GLOBAL = {
   noProjects: "No featured projects yet.",
   noEducation: "No education information yet.",
   noCertifications: "No certifications yet.",
+  noSkills: "No skills yet.",
+
+  // Active links on Secitions
+  activeLinksEducation: false,
+  activeLinksCertifications: false,
 
   // Blog metadata
   blogTitle: "My Thoughts & Takes",
@@ -56,6 +63,21 @@ export const GLOBAL = {
   // About content
   aboutmeDescription:
     "I'm a software developer with a passion for automation and DevOps. I enjoy providing software solutions and bring ideas to life and solve real-world problems. I'm always looking for new challenges and opportunities to learn and grow.",
+
+  // Skills content
+  skills:[
+    {name: "TypeScript", icon: "typescript"},
+    {name: "Nodejs", icon: "nodejs"},
+    {name: "PostgreSQL", icon: "postgresql"},
+    {name: "Python", icon: "python"},
+    {name: "Git", icon: "git"},
+    {name: "docker", icon: "docker"},
+    {name: "AWS", icon: "aws"},
+    {name: "React", icon: "react"},
+    {name: "CI/CD", icon: "ci-cd"},
+    {name: "Jira", icon: "jira"},
+    {name: "Linux", icon: "linux"},
+  ],
 
   // Education content
   education: [
