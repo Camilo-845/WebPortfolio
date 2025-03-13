@@ -16,12 +16,12 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Install dependencies with npm
-        run: npm install --no-frozen-lockfile
+      - name: Install dependencies with pnpm
+        run: pnpm install
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-          package-manager: npm@latest
+          package-manager: pnpm@latest
 
   deploy:
     needs: build
