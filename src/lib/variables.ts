@@ -136,18 +136,18 @@ export const GLOBAL = {
         "https://www.coursera.org/account/accomplishments/verify/EODEXKJELQQ2",
     },
     {
-      name: "How to solve problems and make decisions effectively",
-      institution: "Coursera",
-      date: "2024-12-07T00:00:01Z",
-      url:
-        "https://www.coursera.org/account/accomplishments/verify/EA0Q9UKQQ2YC",
-    },
-    {
       name: "Curso Profesional de Git y GitHub",
       institution: "Platzi",
       date: "2023-10-12T00:00:01Z",
       url:
         "https://platzi.com/p/camilo.sarmiento.amado/",
+    },
+    {
+      name: "How to solve problems and make decisions effectively",
+      institution: "Coursera",
+      date: "2024-12-07T00:00:01Z",
+      url:
+        "https://www.coursera.org/account/accomplishments/verify/EA0Q9UKQQ2YC",
     },
   ],
 };
