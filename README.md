@@ -104,3 +104,60 @@ export const GLOBAL = {
 > [!CAUTION]
 > If you are running the project while changing icons, you may encounter issues.  
 > **Restart the run command** to see your changes. 🔄  
+
+## 🔄 Sync Projects and Blog content with an Obsidian Vault
+
+You can synchronize your **Obsidian Vault** with your Astro project to keep your **projects** and **blog** content up to date.
+
+The sync scripts are located in `utils/ObsidianSync/`:
+
+- **Linux/macOS**: `sync.sh`
+- **Windows**: `sync.ps1`
+
+### ⚙️ Configuration
+
+Before running the script, you need to update the **source** and **destination** paths in the respective script.
+
+#### 🐧 Linux/macOS (`sync.sh`)
+
+Open `utils/ObsidianSync/sync.sh` and update these variables:
+
+```bash
+# Change these paths to match your setup
+sourcePathProjects="$HOME/Documentos/Obsidian Vault/00 - Portfolio/projects"
+destinationPathProjects="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../../src/pages/projects"
+
+sourcePathBlog="$HOME/Documentos/Obsidian Vault/00 - Portfolio/blog"
+destinationPathBlog="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../../src/pages/blog"
+```
+
+#### 🖥 Windows (`sync.ps1`)
+
+Open `utils/ObsidianSync/sync.ps1` and update these variables:
+
+```powershell
+# Change these paths to match your setup
+$sourceProjects = "C:\Users\YourUser\Documents\Obsidian Vault\00 - Portfolio\projects"
+$destinationProjects = "$PSScriptRoot\..\..\src\pages\projects"
+
+$sourceBlog = "C:\Users\YourUser\Documents\Obsidian Vault\00 - Portfolio\blog"
+$destinationBlog = "$PSScriptRoot\..\..\src\pages\blog"
+```
+
+### 🚀 Running the Sync Script
+
+#### **Linux/macOS**
+
+Run the script from the project root:
+
+```bash
+bash utils/ObsidianSync/sync.sh
+```
+
+#### **Windows**
+
+Run the script in PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File utils/ObsidianSync/sync.ps1
+```
