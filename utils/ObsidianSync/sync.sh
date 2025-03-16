@@ -36,10 +36,10 @@ sync_folders() {
 
 # Set variables for Obsidian to Astro
 sourcePathProjects="/home/camilosar/Documentos/Obsidian Vault/00 - Portfolio/projects"
-destinationPathProjects="$SCRIPT_DIR/../src/pages/projects"
+destinationPathProjects="$SCRIPT_DIR/../../src/pages/projects"
 
 sourcePathBlog="/home/camilosar/Documentos/Obsidian Vault/00 - Portfolio/blog"
-destinationPathBlog="$SCRIPT_DIR/../src/pages/blog"
+destinationPathBlog="$SCRIPT_DIR/../../src/pages/blog"
 
 echo "🔄 Syncing Obsidian Vault to Astro..."
 
