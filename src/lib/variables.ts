@@ -8,7 +8,7 @@ export const GLOBAL = {
   // Site metadata
   username: "Camilo Sarmiento",
   rootUrl: "http://camilosar.site",
-  shortDescription: "Software Developer | Automation & DevOps Fan | Tech Lover",
+  shortDescription: "Software Developer | Automation & DevOps Enthusiast",
   longDescription:
     "I enjoy providing software solutions and bring ideas to life and solve real-world problems.",
 
