@@ -7,6 +7,7 @@ tags:
   - Django
   - Git
   - JWT
+  - Backend
 githubUrl: https://github.com/Camilo-845/A_Comprar_BE
 timestamp: 2021-11-26
 featured: true
