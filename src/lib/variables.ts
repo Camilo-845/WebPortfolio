@@ -33,7 +33,7 @@ export const GLOBAL = {
   noCertifications: "No certifications yet.",
   noSkills: "No skills yet.",
 
-  // Active links on Secitions
+  // Active links on Sections
   activeLinksEducation: false,
   activeLinksCertifications: false,
 
