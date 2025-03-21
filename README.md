@@ -105,11 +105,11 @@ export const GLOBAL = {
 > If you are running the project while changing icons, you may encounter issues.  
 > **Restart the run command** to see your changes. 🔄  
 
-## 🔄 Sync Projects and Blog Content with an Obsidian Vault
+## 🔄 Sync Projects, Blog Content, and Images with an Obsidian Vault
 
-You can synchronize your **Obsidian Vault** with your Astro project to keep your **projects** and **blog** content up to date.
+You can synchronize your **Obsidian Vault** with your Astro project to keep your **projects**, **blog** content, and **images** up to date.
 
-The sync scripts are located in `utils/ObsidianSync/`:
+The sync scripts are located in `utils/ObsidianSync/` and `utils/ImagesSync/`:
 
 - **Linux/macOS**: `sync.sh`
 - **Windows**: `sync.ps1`
@@ -144,7 +144,7 @@ $sourceBlog = "$env:USERPROFILE\Documents\ObsidianVault\Portfolio\blog"
 $destinationBlog = "$PSScriptRoot\..\..\src\pages\blog"
 ```
 
-### 📂 Configuring the Python Sync Script
+### 📂 Configuring the Python Image Sync Script
 
 In `utils/ImagesSync/sync.py`, you need to specify the location of your Obsidian Vault.
 
@@ -152,21 +152,27 @@ Open `sync.py` and update the `attachments_dir` variable to match your Obsidian 
 
 ```python
 # Paths
-attachments_dir = "/home/YOUR_USER/Documents/Obsidian Vault"  # Update this path
+attachments_dir = "/home/YOUR_USER/Documents/Obsidian Vault/00 - Portfolio/images"  # Update this path
 posts_dir = os.path.join(script_dir, "../../src/pages/blog/")
 static_images_dir = os.path.join(script_dir, "../../images/")
 ```
 
-Replace `/home/YOUR_USER/Documents/Obsidian Vault` with the actual path of your Obsidian Vault directory.
+Replace `/home/YOUR_USER/Documents/Obsidian Vault/00 - Portfolio/images` with the actual path of your Obsidian Vault directory.
 
 ### 🚀 Running the Sync Script
+
+The script supports two synchronization modes:
+
+- **Push** (default): Syncs content **from** Obsidian **to** your Astro project.
+- **Pull**: Syncs content **from** your Astro project **to** Obsidian.
 
 #### **Linux/macOS**
 
 Run the script from the project root:
 
 ```bash
-bash utils/ObsidianSync/sync.sh
+bash utils/ObsidianSync/sync.sh push  # Default mode
+bash utils/ObsidianSync/sync.sh pull  # Sync in reverse
 ```
 
 #### **Windows**
@@ -174,7 +180,8 @@ bash utils/ObsidianSync/sync.sh
 Run the script in PowerShell:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File utils/ObsidianSync/sync.ps1
+powershell -ExecutionPolicy Bypass -File utils/ObsidianSync/sync.ps1 -Mode push  # Default mode
+powershell -ExecutionPolicy Bypass -File utils/ObsidianSync/sync.ps1 -Mode pull  # Sync in reverse
 ```
 
 ### 🔄 Full Sync (Obsidian + Images)
@@ -184,13 +191,15 @@ To fully synchronize your Obsidian content and images, run the global sync scrip
 #### Linux/macOS
 
 ```bash
-bash utils/sync.sh
+bash utils/sync.sh push  # Default mode
+bash utils/sync.sh pull  # Sync in reverse
 ```
 
 #### Windows
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File utils/sync.ps1
+powershell -ExecutionPolicy Bypass -File utils/sync.ps1 -Mode push  # Default mode
+powershell -ExecutionPolicy Bypass -File utils/sync.ps1 -Mode pull  # Sync in reverse
 ```
 
 This will execute:
@@ -217,4 +226,4 @@ pip install pillow
 
   ```powershell
   Set-ExecutionPolicy Unrestricted -Scope Process
-  
+  ```
