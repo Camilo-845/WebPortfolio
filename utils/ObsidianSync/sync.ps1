@@ -1,4 +1,14 @@
-# Define synchronization function
+# Habilitar salida en caso de errores
+$ErrorActionPreference = "Stop"
+
+# Obtener la ruta del script actual
+$SCRIPT_DIR = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
+# Definir modo de sincronización (por defecto: push)
+$MODE = $args[0]
+if (-not $MODE) { $MODE = "push" }
+
+# Función para sincronizar carpetas
 function Sync-Folders {
     param (
         [string]$sourcePath,
@@ -6,37 +16,38 @@ function Sync-Folders {
         [string]$name
     )
 
-    # Verificar si la carpeta de origen existe
-    if (!(Test-Path $sourcePath -PathType Container)) {
-        Write-Host "❌ Source path does not exist: $sourcePath"
+    if ($MODE -eq "pull") {
+        # Intercambiar source y destination en modo pull
+        $temp = $sourcePath
+        $sourcePath = $destinationPath
+        $destinationPath = $temp
+    }
+
+    # Verificar que los directorios existen
+    if (-Not (Test-Path $sourcePath -PathType Container)) {
+        Write-Host "❌ El directorio fuente no existe: $sourcePath" -ForegroundColor Red
         exit 1
     }
 
-    # Verificar si la carpeta de destino existe
-    if (!(Test-Path $destinationPath -PathType Container)) {
-        Write-Host "❌ Destination path does not exist: $destinationPath"
+    if (-Not (Test-Path $destinationPath -PathType Container)) {
+        Write-Host "❌ El directorio destino no existe: $destinationPath" -ForegroundColor Red
         exit 1
     }
 
-    # Si el origen está vacío, copiar desde el destino
-    if (!(Get-ChildItem -Path $sourcePath)) {
-        Write-Host "⚠️ Source path is empty, restoring from destination..."
-        robocopy "$destinationPath" "$sourcePath" /E
-    }
+    # Sincronizar archivos (usando robocopy en Windows)
+    robocopy $sourcePath $destinationPath /E /PURGE
 
-    # Sincronizar sin crear subcarpeta extra
-    robocopy "$sourcePath" "$destinationPath" /MIR
-    Write-Host "✅ $name synced successfully!"
+    Write-Host "✅ $name sincronizado correctamente! (Modo: $MODE)" -ForegroundColor Green
 }
 
-# Definir las rutas de los directorios
-$sourcePathProjects = "C:\Users\camilosar\Documents\Obsidian Vault\00 - Portfolio\projects"
-$destinationPathProjects = "$PSScriptRoot\..\src\pages"
+# Definir rutas
+$sourcePathProjects = "C:\Users\Usuario\Documents\Obsidian Vault\00 - Portfolio\projects"
+$destinationPathProjects = "$SCRIPT_DIR\..\..\src\pages\projects"
 
-$sourcePathBlog = "C:\Users\camilosar\Documents\Obsidian Vault\00 - Portfolio\blog"
-$destinationPathBlog = "$PSScriptRoot\..\src\pages"
+$sourcePathBlog = "C:\Users\Usuario\Documents\Obsidian Vault\00 - Portfolio\blog"
+$destinationPathBlog = "$SCRIPT_DIR\..\..\src\pages\blog"
 
-Write-Host "🔄 Syncing Obsidian Vault to Astro..."
+Write-Host "🔄 Iniciando sincronización ($MODE mode)..." -ForegroundColor Cyan
 
 # Sincronizar proyectos
 Sync-Folders $sourcePathProjects $destinationPathProjects "Projects"
