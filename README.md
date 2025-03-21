@@ -105,7 +105,7 @@ export const GLOBAL = {
 > If you are running the project while changing icons, you may encounter issues.  
 > **Restart the run command** to see your changes. 🔄  
 
-## 🔄 Sync Projects and Blog content with an Obsidian Vault
+## 🔄 Sync Projects and Blog Content with an Obsidian Vault
 
 You can synchronize your **Obsidian Vault** with your Astro project to keep your **projects** and **blog** content up to date.
 
@@ -124,11 +124,11 @@ Open `utils/ObsidianSync/sync.sh` and update these variables:
 
 ```bash
 # Change these paths to match your setup
-sourcePathProjects="$HOME/Documentos/Obsidian Vault/00 - Portfolio/projects"
-destinationPathProjects="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../../src/pages/projects"
+sourcePathProjects="$HOME/Documents/ObsidianVault/Portfolio/projects"
+destinationPathProjects="$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)/../../src/pages/projects"
 
-sourcePathBlog="$HOME/Documentos/Obsidian Vault/00 - Portfolio/blog"
-destinationPathBlog="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../../src/pages/blog"
+sourcePathBlog="$HOME/Documents/ObsidianVault/Portfolio/blog"
+destinationPathBlog="$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)/../../src/pages/blog"
 ```
 
 #### 🖥 Windows (`sync.ps1`)
@@ -137,12 +137,27 @@ Open `utils/ObsidianSync/sync.ps1` and update these variables:
 
 ```powershell
 # Change these paths to match your setup
-$sourceProjects = "C:\Users\YourUser\Documents\Obsidian Vault\00 - Portfolio\projects"
+$sourceProjects = "$env:USERPROFILE\Documents\ObsidianVault\Portfolio\projects"
 $destinationProjects = "$PSScriptRoot\..\..\src\pages\projects"
 
-$sourceBlog = "C:\Users\YourUser\Documents\Obsidian Vault\00 - Portfolio\blog"
+$sourceBlog = "$env:USERPROFILE\Documents\ObsidianVault\Portfolio\blog"
 $destinationBlog = "$PSScriptRoot\..\..\src\pages\blog"
 ```
+
+### 📂 Configuring the Python Sync Script
+
+In `utils/ImagesSync/sync.py`, you need to specify the location of your Obsidian Vault.
+
+Open `sync.py` and update the `attachments_dir` variable to match your Obsidian Vault's directory:
+
+```python
+# Paths
+attachments_dir = "/home/YOUR_USER/Documents/Obsidian Vault"  # Update this path
+posts_dir = os.path.join(script_dir, "../../src/pages/blog/")
+static_images_dir = os.path.join(script_dir, "../../images/")
+```
+
+Replace `/home/YOUR_USER/Documents/Obsidian Vault` with the actual path of your Obsidian Vault directory.
 
 ### 🚀 Running the Sync Script
 
@@ -161,3 +176,45 @@ Run the script in PowerShell:
 ```powershell
 powershell -ExecutionPolicy Bypass -File utils/ObsidianSync/sync.ps1
 ```
+
+### 🔄 Full Sync (Obsidian + Images)
+
+To fully synchronize your Obsidian content and images, run the global sync script:
+
+#### Linux/macOS
+
+```bash
+bash utils/sync.sh
+```
+
+#### Windows
+
+```powershell
+powershell -ExecutionPolicy Bypass -File utils/sync.ps1
+```
+
+This will execute:
+
+1. `ObsidianSync/sync.sh` or `sync.ps1` (depending on the OS) to sync projects and blog content.
+2. `ImagesSync/sync.py` to update images used in the Markdown files, converting them to WebP when Pillow is installed.
+
+### 🖼 Image Conversion to WebP
+
+The image sync script (`utils/ImagesSync/sync.py`) processes images referenced in Markdown files and ensures they are saved in WebP format to optimize loading speed. If the required `Pillow` package is not installed, the script will fall back to using PNG format.
+
+#### Installing Pillow
+
+To enable WebP conversion, install Pillow:
+
+```bash
+pip install pillow
+```
+
+#### ✅ Notes
+
+- Ensure the scripts have execution permissions (`chmod +x sync.sh` for Linux/macOS).
+- If PowerShell restricts execution, you may need to run:
+
+  ```powershell
+  Set-ExecutionPolicy Unrestricted -Scope Process
+  
