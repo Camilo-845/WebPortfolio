@@ -20,7 +20,7 @@ MODE = sys.argv[1] if len(sys.argv) > 1 else "push"
 attachments_dir = "/home/camilosar/Documentos/Obsidian Vault/00 - Portfolio/images"  # Directorio de imágenes en Obsidian
 local_obsidian_vault_posts_dir = "/home/camilosar/Documentos/Obsidian Vault/00 - Portfolio/blog"  # Directorio de posts en Obsidian
 posts_dir = os.path.join(script_dir, "../../src/pages/blog/")  # Directorio de posts en Astro
-static_images_dir = os.path.join(script_dir, "../../images/")  # Directorio de imágenes en Astro
+static_images_dir = os.path.join(script_dir, "../../public/images")  # Directorio de imágenes en Astro
 
 # Asegurar que los directorios existen
 os.makedirs(static_images_dir, exist_ok=True)
