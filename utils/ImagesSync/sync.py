@@ -55,13 +55,13 @@ def process_images_push():
                     try:
                         with Image.open(image_source) as img:
                             img.convert("RGB").save(webp_path, "WEBP", quality=80)
-                        markdown_image = f"![{alt_text}](/images/{webp_image})"
+                        markdown_image = f"[{alt_text}](/images/{webp_image})"
                     except Exception as e:
                         print(f"Error al convertir {image}: {e}")
-                        markdown_image = f"![{alt_text}](/images/{image})"
+                        markdown_image = f"[{alt_text}](/images/{image})"
                         shutil.copy(image_source, static_images_dir)
                 else:
-                    markdown_image = f"![{alt_text}](/images/{image})"
+                    markdown_image = f"[{alt_text}](/images/{image})"
                     shutil.copy(image_source, static_images_dir)
 
                 content = content.replace(f"[[{image}]]", markdown_image)
