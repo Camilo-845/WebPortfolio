@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ProjectLayout.astro
 title: A comprar Frontend
-description: Frontdent con VueJs para a comprar Backend
+description: Frontend con VueJs para a comprar Backend
 tags:
   - Vuejs
   - JavaScript
