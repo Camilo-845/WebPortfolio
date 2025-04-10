@@ -10,7 +10,7 @@ tags:
   - Backend
 githubUrl: https://github.com/Camilo-845/A_Comprar_BE
 timestamp: 2021-11-26
-featured: true
+featured: false
 filename: A-comprar-Backend
 ---
 > De mis primeros proyectos desarrollados, contiene tablas simples para el manejo de usuarios, productos y compras

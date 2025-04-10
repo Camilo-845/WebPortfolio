@@ -10,7 +10,7 @@ tags:
   - Frontend
 githubUrl: https://github.com/Camilo-845/A_COMPRAR_FE/tree/main/a_comprar_fe
 timestamp: 2021-12-03
-featured: true
+featured: false
 filename: A-comprar-Frontend
 ---
 > Primer proyecto usando Vuejs
