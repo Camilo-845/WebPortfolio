@@ -23,7 +23,7 @@ export const articles = (
   const dateA = new Date(a.timestamp);
   const dateB = new Date(b.timestamp);
   return dateB.getTime() - dateA.getTime();
-});
+}).filter((data)=>data.featured);
 
 export const projects = (
   await processContentInDir<ProjectFrontmatter, ProjectFrontmatter>(
@@ -48,4 +48,4 @@ export const projects = (
   const dateA = new Date(a.timestamp);
   const dateB = new Date(b.timestamp);
   return dateB.getTime() - dateA.getTime();
-});
+}).filter((data)=>data.featured);
